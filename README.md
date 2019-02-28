@@ -1,6 +1,6 @@
 # Facial Recognition with Deep Learning
 This project examines the use of deep learning in automatic face recognition tasks, and
-implemented as working code the key ideas taken from the most famous of them, namely DeepFace 
+implemented using PyTorch the key ideas taken from the most famous of them, namely DeepFace 
 and FaceNet. Note that the input to real-life automatic face recognition system is not 
 a 2-D image but a real person showing up, which can make the approaches mentioned above
 insufficient in the sense that the system must be able to distinguish a real person from his/
@@ -15,12 +15,3 @@ and 3 others were held out for validation purposes. The notebook assumes the fol
 but can easily be changed from within the **Config** class:  
 *./17faces/train/[name]/[photo].jpg   
 ./17faces/valid/[name]/[photo].jpg*
-
-As a design decision, with the aim of increasing both the accuracy and the speed of training of our
-model, we inserted a ResNet CNN trained for the ImageNet classification task inside the Siamese
-Network. We did not freeze the already trained ResNet parameters and continued their training for
-the face recognition use case. However, a deep CNN seem to overfit our small dataset so we
-selected an easily trainable, small ResNet with only 18 layers. Furthermore, we encode face images
-as vectors of dimension 64. Smaller number of dimensions tended to reduce representational power
-of the encoders; whereas with higher dimensions the training became more difficult in the sense that
-same-class (positive) samples could not come close together with this amount of data in high-dimensional spaces.
